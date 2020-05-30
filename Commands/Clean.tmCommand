@@ -15,13 +15,16 @@ dir = ENV["TM_PROJECT_DIRECTORY"] || ENV["TM_DIRECTORY"]
 project_name = File.basename(dir)
 
 TextMate::Executor.run(
-  'rm', '-rfv', '.build',
+  e_sh(ENV['TM_SWIFT'] || 'swift'), 'package', 'clean',
   :verb =&gt; 'Cleaning',
   :noun =&gt; project_name,
-  :use_hashbang =&gt; false,
-  :version_args =&gt; [],
-  :version_replace =&gt; ''
-)
+  :use_hashbang =&gt; false
+) do |str, type|
+  if str =~ /^\[(\d+)\/(\d+)\]\s*/
+    js = "&lt;script&gt;TextMate.progress = %f&lt;/script&gt;" % ($1.to_f / $2.to_f)
+    js + htmlize(str)
+  end
+end
 </string>
 	<key>input</key>
 	<string>none</string>
