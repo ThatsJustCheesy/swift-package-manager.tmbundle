@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>whfgpurrfl@bhgybbx.pbz</string>
+	<key>contactName</key>
+	<string>Ian Gregory</string>
+	<key>description</key>
+	<string>Support for building with Swift Package Manager.</string>
+	<key>name</key>
+	<string>Swift Package Manager</string>
+	<key>uuid</key>
+	<string>4C2FAEB1-B07D-4B3E-9528-BBCCC3174EDF</string>
+    <key>mainMenu</key>
+    <dict>
+        <key>items</key>
+        <array>
+            <string>B47BB5E2-0AC4-4D05-BF37-48B05832B292</string>
+            <string>0548896C-AF7E-4BE7-8491-09D563259222</string>
+            <string>EE418E49-0A95-4EF3-B748-C704B6DAA5E5</string>
+            <string>------------------------------------</string>
+            <string>580A401F-4D66-43BF-ABE3-EFA94131B9E6</string>
+        </array>
+    </dict>
+    <key>ordering</key>
+    <array>
+        <string>B47BB5E2-0AC4-4D05-BF37-48B05832B292</string>
+        <string>0548896C-AF7E-4BE7-8491-09D563259222</string>
+        <string>EE418E49-0A95-4EF3-B748-C704B6DAA5E5</string>
+        <string>580A401F-4D66-43BF-ABE3-EFA94131B9E6</string>
+    </array>
+</dict>
+</plist>

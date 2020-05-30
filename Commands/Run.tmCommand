@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18
+
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
+
+TextMate::Executor.make_project_master_current_document
+
+dir = ENV["TM_PROJECT_DIRECTORY"] || ENV["TM_DIRECTORY"]
+project_name = File.basename(dir)
+
+TextMate::Executor.run(
+  e_sh(ENV['TM_SWIFT'] || 'swift'), 'run',
+  :verb =&gt; 'Running',
+  :noun =&gt; project_name,
+  :use_hashbang =&gt; false
+) do |str, type|
+  if str =~ /^\[(\d+)\/(\d+)\]\s*/
+    js = "&lt;script&gt;TextMate.progress = %f&lt;/script&gt;" % ($1.to_f / $2.to_f)
+    js + htmlize(str)
+  end
+end
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Run</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>attr.project.swift</string>
+	<key>semanticClass</key>
+	<string>process.run.swiftpm</string>
+	<key>uuid</key>
+	<string>EE418E49-0A95-4EF3-B748-C704B6DAA5E5</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
